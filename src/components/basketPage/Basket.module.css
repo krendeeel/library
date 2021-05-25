@@ -1,0 +1,15 @@
+.title{
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+.basket{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+    gap: 15px;
+    align-items: start;
+    justify-content: start;
+}

@@ -1,0 +1,34 @@
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+}
+
+.pages{
+    margin: 20px;
+    
+}
+.page{
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 100%;
+    padding: 5px 10px;
+    margin: 0 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.activepage{
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    border-radius: 100%;
+    padding: 5px 10px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.page:hover{
+    background-color: white;
+    color: black;
+    font-weight: 500;
+}

@@ -1,0 +1,60 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    text-indent: 25px;
+    
+    font-weight: normal;
+    line-height: 1.5;
+
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+
+.img{
+    height: 400px;
+    width: 550px;
+}
+.button{
+    font-size: 35px;
+    color: white;
+    font-weight: 500;
+    background-color: black;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 24px;
+    border: 2px solid white;
+    width: 350px;
+}
+
+.button:hover{
+    color: black;
+    background-color: white;
+}
+div .img {
+    display: flex;
+    flex: 0 0 50%;
+    align-items: center;
+    justify-content:end;
+}

@@ -1,0 +1,45 @@
+.header{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+
+.title{
+    color: white;
+    font-weight: 900;
+    font-size: 25px;
+    margin-left: 50px;
+}
+
+
+.logaut{
+    background: #000;
+    border-radius: 25px;
+    border: 2px solid white;
+    color: white;
+    font-weight: 500;
+    width: 80px;
+    height: 65%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.logaut:hover{
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+}
+
+.user{
+    background: #000;
+    border-radius: 100%;
+    border: 2px solid white;
+    color: white;
+    font-weight: 700;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 17px;
+}

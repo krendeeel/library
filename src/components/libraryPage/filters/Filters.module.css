@@ -1,0 +1,7 @@
+.filters{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 15px;
+    flex: 0 0 35px;
+}

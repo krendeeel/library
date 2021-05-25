@@ -1,0 +1,46 @@
+.navbar{
+    width: 200px;
+}
+.item{
+display: flex;
+  color: white;  
+  border-radius: 24px;
+  height: 34px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  align-items: center;
+  padding: 2px 4px 2px 20px;
+  margin: 10px 0 0 0;
+  font-family: Arial;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.item:hover{
+    color: black;
+    background-color: white;
+    font-weight: 500;
+}
+.main::before{
+    content: "\f015";
+    font-family: 'FontAwesome';
+    margin-right: 15px;
+}
+.library::before{
+    content: "\f19d";
+    font-family: 'FontAwesome';
+    margin-right: 10px;
+}
+.basket::before{
+    content: "\f07a";
+    font-family: 'FontAwesome';
+    margin-right: 15px;
+    margin-right: 17px;
+
+}
+.settings::before{
+    content: "\f085";
+    font-family: 'FontAwesome';
+    margin-right: 15px;
+}

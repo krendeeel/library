@@ -1,0 +1,8 @@
+.reg{
+    color: rgb(35, 39, 250);
+    text-align: center;
+    margin: 7px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px;
+}
