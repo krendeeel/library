@@ -18,10 +18,10 @@ import { infoUserThunk } from '../redux/store';
 function App() {
   const dispatch = useDispatch()
     useEffect(()=>{
-     const token =  cookies.get('token');
-     if(token){
-      dispatch(infoUserThunk({token: token}))
-     }
+      const token =  cookies.get('token');
+      if(token){
+       dispatch(infoUserThunk({token: token}))
+      }
     }, [])
     return (
     <BrowserRouter>

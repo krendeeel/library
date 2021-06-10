@@ -22,14 +22,14 @@ const useStyles = makeStyles({
 
 
 
-export const MediaCard = () =>  {
+export const MediaCard = (props) =>  {
   const classes = useStyles();
   const history = useHistory()
 
   const a = () => {
     history.push({
       pathname: '/info',
-      search: '?x=er&&er+hjdtgfjsh'
+      search: `?name=${props.name}`
     })
   }
 
@@ -38,13 +38,13 @@ export const MediaCard = () =>  {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          style={{ width: 150, height: 100}}
-          image='https://cv7.litres.ru/pub/c/elektronnaya-kniga/cover_250/65068372-anatoliy-drozdov-pistol-i-shpaga.jpg'
-          title="Наводка"
+          style={{ width: 150, height: 170}}
+          image={props.image}
+          title={props.name}
         />
-        <CardContent className='qwe'>
-          <Typography variant="body2" color="textSecondary" component="p" className='qwer'>
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p" >
+            {props.name}
           </Typography>
         </CardContent>
       </CardActionArea>

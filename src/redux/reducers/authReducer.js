@@ -4,11 +4,11 @@ const initialState = {
         email: null,
         firstName: null,
         lastName: null,
-        roles: null
+        roles: null,
+        basket: null
     },
     errors: null
 }
-
 
 export const authReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -17,7 +17,7 @@ export const authReducer = (state = initialState, action) => {
         case SET_USER: 
             return {...state, 
                 user: {...state.user, firstName: action.firstName, lastName: action.lastName,
-                email: action.email, roles: action.roles}}
+                email: action.email, roles: action.roles, basket: action.basket}}
         default:
             return state;
     }

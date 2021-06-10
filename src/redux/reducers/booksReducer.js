@@ -1,26 +1,44 @@
+import { SET_BOOKS, SET_FILTER, SET_SEARCH_BOOKS } from "../actions/actions"
+import { SET_BOOK_INFO, SET_CURRENT_PAGE } from './../actions/actions';
+
 const initialState = {
     bookInfo: {
-        name: 'Звезд не хватит на всех. День горящей брони',
-        author: 'Макс Глебов',
-        city: 'Тула',
-        genre: 'Приключения',
-        description:'Генерал-майор Вершинин продолжает свой путь через Серый Периметр, пытаясь найти способ вернуться на Землю, причем вернуться не с пустыми руками. Сам того не желая, он всё больше нарушает баланс сил, сложившийся на окраине галактики, и обращает на себя пристальное внимание людей и чужих, считающих себя хозяевами этого сумеречного пространства, где жестокость и цинизм являются нормой жизни. Необычные способности Вершинина не остались незамеченными, и, естественно, немедленно появились желающие поставить их себе на службу.',
-        image: 'https://cv4.litres.ru/pub/c/elektronnaya-kniga/cover_415/64405246-maks-alekseevich-glebov-zvezd-ne-hvatit-na-vseh-den-goryaschey-broni.jpg',
-        reservation: false
-    }
+        name: null,
+        author: null,
+        city: null,
+        genre: null,
+        description: null,
+        image: null,
+        reservation: null
+    },
+    filter: {
+        genre: '',
+        author: '',
+        country: '',
+        city: ''
+    },
+    books: {
+        total: null,
+        items: null
+    },
+    currentPage: 1,
+    searchBooks: []
 }
-
 
 export const booksReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'SET_AUTH_ERRORS': 
-            return {...state, errors: action.errors}
-        case 'SET_USER_INFO': 
-            return {...state, user: {...state.user, firstName: action.firstName, lastName: action.lastName}}
-        case 'SET_AUTH': 
-            return {...state, auth: action.auth}
-        case 'SET_PRELOADER': 
-            return {...state, preloader: action.preloader}
+        case SET_BOOKS: 
+            return {...state, books: {...state.books, total: action.ftotal, items: action.items}}
+        case SET_BOOK_INFO: 
+            return {...state, bookInfo: {...state.bookInfo, 
+                name: action.name, author: action.author, city: action.city, genre: action.genre,
+                description: action.description,image: action.image, reservation: action.reservation}}
+        case SET_FILTER: 
+            return {...state, filter: {...state.filter, genre: action.genre, author: action.author, city: action.city}}
+        case SET_CURRENT_PAGE: 
+            return {...state, currentPage: action.currentPage}
+        case SET_SEARCH_BOOKS: 
+            return {...state, searchBooks: action.items}
         default:
             return state;
     }

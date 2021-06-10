@@ -1,21 +1,30 @@
 import React from 'react'
 import s from './Pagination.module.css'
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentPage } from './../../../redux/actions/actions';
+import { createPages } from './../../utils/utils';
 
 
 export const Pagination = () => {
-    const [page, onPage, totalCount] = [1,18,20];
-    const currentPage = 3;
-    const pages = [1,2,3,4,5]
+    const currentPage = useSelector(state => state.booksReducer.currentPage)
+    const total = useSelector(state => state.booksReducer.books.total)
+    const pagesCount = Math.ceil(total/12)
+    const dispatch = useDispatch()
+    const pages = []
+    createPages(pages, pagesCount, currentPage)
     return (
     <div className={s.pagination}>
-        <div className={s.pages}>
+        {pagesCount != 1 && <div className={s.pages}>
             {pages.map((page, index) => 
             <span 
             key={index} 
             className={currentPage == page? s.page && s.activepage : s.page}
-            onClick={()=>alert('изменять номер страницы')}>
+            onClick={()=>{
+                dispatch(setCurrentPage(page))
+            }}
+            >
                 {page}
             </span> )}
-        </div>
+        </div>}
     </div>)
 }

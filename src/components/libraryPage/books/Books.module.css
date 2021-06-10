@@ -2,9 +2,14 @@
     display: flex;
     flex: 0 1 100%;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 8px;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
     margin-top: 15px;
-    
+    gap:15px ;
+}
+
+.books:nth-last-child(-n+5){
+    justify-content:left;
+    align-items:baseline;
 }

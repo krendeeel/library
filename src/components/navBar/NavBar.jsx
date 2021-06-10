@@ -3,14 +3,17 @@ import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import {NavLink} from 'react-router-dom'
 import s from './NavBar.module.css'
 import { FormHelperText } from '@material-ui/core'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getInfoBookThunk, searchBooksThunk } from '../../redux/store'
+import { useHistory } from 'react-router-dom';
 
 export const NavBar = (props) => {
+    const dispatch = useDispatch()
+    const items = useSelector(state => state.booksReducer.searchBooks)
+    const history = useHistory()
     const handleOnSearch = (string) => {
-        // onSearch will have as the first callback parameter
-        // the string searched and for the second the results.
-        console.log(`string: ${string}`)
-      }
+      dispatch(searchBooksThunk(string))
+    }
     
       const handleOnHover = (result) => {
         // the item hovered
@@ -18,8 +21,11 @@ export const NavBar = (props) => {
       }
     
       const handleOnSelect = (item) => {
-        // the item selected
-        console.log(item)
+        dispatch(getInfoBookThunk(item))
+        history.push({
+          pathname: '/info',
+          search: `?name=${item.name}`
+        })
       }
     
       const handleOnFocus = () => {
@@ -31,7 +37,7 @@ export const NavBar = (props) => {
         borderRadius: "24px",
         backgroundColor: "black",
         boxShadow: "rgb(255, 255, 255) 0px 1px 6px 0px",
-        hoverBackgroundColor: "#eee",
+        hoverBackgroundColor: "rgb(115, 115, 236)",
         clearIconMargin: '3px 14px 0 0',
         color: "white",
         fontSize: "16px",
@@ -46,12 +52,12 @@ export const NavBar = (props) => {
       <div>
         <div className={s.navbar}>
             <ReactSearchAutocomplete
+                items={items}
                 onSearch={handleOnSearch}
-                onHover={handleOnHover}
                 onSelect={handleOnSelect}
-                onFocus={handleOnFocus}
                 placeholder="Поиск"
                 styling={a}
+                className={s.a}
             />
             <NavLink to='/'>
               <div className={s.item + ' ' + s.main}>Главная</div>
