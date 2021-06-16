@@ -11,7 +11,7 @@ export const Home = () =>{
     },[])
     return (
         <div className={s.home}>
-            {homeText.map(item => <p className={s.title}>{item}</p>)}
+            {homeText.map(item => <p key={item} className={s.title}>{item}</p>)}
         </div>
     )
 }
