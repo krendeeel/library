@@ -14,11 +14,11 @@ export const Pagination = () => {
     createPages(pages, pagesCount, currentPage)
     return (
     <div className={s.pagination}>
-        {pagesCount != 1 && <div className={s.pages}>
+        {pagesCount !== 1 && <div className={s.pages}>
             {pages.map((page, index) => 
             <span 
             key={index} 
-            className={currentPage == page? s.page && s.activepage : s.page}
+            className={currentPage === page? s.page && s.activepage : s.page}
             onClick={()=>{
                 dispatch(setCurrentPage(page))
             }}

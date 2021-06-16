@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import s from './Header.module.css'
 import {useDispatch, useSelector} from 'react-redux'
 import {setAuthLogin, setUser } from '../../redux/actions/actions'

@@ -1,0 +1,40 @@
+.book{
+    display: flex;
+    flex-direction: column;
+    height: 270px;
+    width: 150px;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    
+}
+.title{
+    padding: 4px;
+    height: 40px;
+}
+.name{
+    overflow: hidden;
+    white-space:nowrap;
+    word-break: break-all;
+    text-overflow:ellipsis;
+    text-align: center;
+    line-height: 2.5em;
+    height: 100%;
+    width: 100%;
+    font-weight: 800;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+}
+
+.img{
+   height: 230px;
+   object-fit: cover;
+}
+
+.book:hover{
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.book:active{
+    border: 1px solid rgb(2, 255, 2);
+}

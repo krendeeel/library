@@ -1,6 +1,5 @@
 import { SET_AUTH_LOGIN, SET_AUTH_REG, SET_BOOK_ADD, 
-    SET_BOOK_REMOVE, SET_COMPONENTS_ERRORS} from './../actions/actions';
-
+    SET_BOOK_REMOVE, SET_COMPONENTS_ERRORS, SET_CURRENT_ITEM} from './../actions/actions';
 
 const initialState = {
     authForm: {
@@ -11,12 +10,10 @@ const initialState = {
         add: false,
         remove: false
     },
-    basket: {
-        items: [1,2,3]
-    },
     library: {
         items: []
     },
+    currentItem: null,
     errors: null
 }
 
@@ -32,6 +29,8 @@ export const componentsReducer = (state = initialState, action) => {
             return {...state, booksForm: {...state.booksForm, remove: action.onOff}}
         case SET_COMPONENTS_ERRORS: 
             return {...state,errors: action.errors}
+        case SET_CURRENT_ITEM: 
+            return {...state,currentItem: action.item}
         default:
             return state;
     }

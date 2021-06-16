@@ -28,7 +28,7 @@ const initialState = {
 export const booksReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_BOOKS: 
-            return {...state, books: {...state.books, total: action.ftotal, items: action.items}}
+            return {...state, books: {...state.books, total: action.total, items: action.items}}
         case SET_BOOK_INFO: 
             return {...state, bookInfo: {...state.bookInfo, 
                 name: action.name, author: action.author, city: action.city, genre: action.genre,

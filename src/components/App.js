@@ -6,7 +6,6 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Basket } from './basketPage/Basket';
 import { Home } from './homePage/Home';
 import { Library } from './libraryPage/Library';
-
 import { Settings } from './settingsPage/Settings';
 import { LoginPage } from './forms/LoginPage/Login';
 import { RegPage } from './forms/RegPage/Reg';

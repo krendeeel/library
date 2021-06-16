@@ -13,8 +13,7 @@ export default class RemoveBookForm extends PureComponent {
     let data = {
             name: name
     }
-    // this.props.sent(data)
-    console.log(data)
+    this.props.send(data)
   };
 
   render = () => (

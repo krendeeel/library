@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Button} from 'react-bootstrap';
+import { Modal} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUserThunk } from '../../../redux/store';
 import { setAuthReg } from './../../../redux/actions/actions';

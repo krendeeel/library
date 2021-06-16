@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
-import { setBookAdd, setBookRemove} from '../../redux/actions/actions';
+import { setBookAdd, setBookRemove, setCurrentItem} from '../../redux/actions/actions';
 import { AddBook} from '../forms/addBookPage/AddBook';
 import { RemoveBook} from '../forms/removeBookPage/RemoveBook';
 import s from './Settings.module.css'
@@ -10,6 +10,10 @@ export const Settings = () =>{
     const dispatch = useDispatch()
     const add = () => dispatch(setBookAdd(true))
     const remove = () => dispatch(setBookRemove(true))
+    
+    useEffect(() => {
+        dispatch(setCurrentItem('Настройки'))
+    }, [ ])
     return (
         <div className={s.setting}>
             {!roles &&  <Redirect to='/'/>}

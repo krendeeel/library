@@ -10,6 +10,9 @@ export const SET_BOOK_INFO = 'BOOKS_REDUCER/SET_BOOK_INFO'
 export const SET_FILTER = 'BOOKS_REDUCER/SET_FILTER'
 export const SET_CURRENT_PAGE = 'BOOKS_REDUCER/SET_CURRENT_PAGE'
 export const SET_SEARCH_BOOKS = 'BOOKS_REDUCER/SET_SEARCH_BOOKS'
+export const SET_CURRENT_ITEM = 'COMPONENTS_REDUCER/SET_CURRENT_ITEM'
+
+
 
 
 export const setAuthReg = onOff => {return {type: SET_AUTH_REG, onOff}}
@@ -19,7 +22,7 @@ export const setUser = (email, firstName, lastName, roles, basket) => {return {t
 export const setAuthError = errors => {return {type: SET_AUTH_ERRORS, errors}}
 export const setBookAdd = onOff => {return {type: SET_BOOK_ADD, onOff}}
 export const setBookRemove= onOff => {return {type: SET_BOOK_REMOVE, onOff}}
-export const setAComponentsError = errors => {return {type: SET_COMPONENTS_ERRORS, errors}}
+export const setComponentsError = errors => {return {type: SET_COMPONENTS_ERRORS, errors}}
 
 export const setBooks = (total, items) => {return {type: SET_BOOKS, total, items}}
 export const setFilter = (genre, author, city) => {return {type: SET_FILTER, genre, author, city}}
@@ -27,6 +30,10 @@ export const setBookInfo = (name,  author, city, genre, description, image, rese
         {return {type: SET_BOOK_INFO, name,  author, city, genre, description, image, reservation}}
 export const setCurrentPage = currentPage => {return {type: SET_CURRENT_PAGE, currentPage}}
 export const setSearchBooks = items => {return {type: SET_SEARCH_BOOKS, items}}
+
+
+export const setCurrentItem = item => {return {type: SET_CURRENT_ITEM, item}}
+
 
 
  

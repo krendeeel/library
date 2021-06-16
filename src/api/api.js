@@ -20,9 +20,14 @@ export const api = (url, method, data) => {
             resolve(data);
         })
         .catch(response => {
-            response.json().then(error => {
-                reject(error);
-            });
+            try {
+                response.json().then(error => {
+                    reject(error);
+                });
+            } catch (error) {
+                alert('Нет доступа к серверу!!!')
+            }
+           
         });
     });
 }

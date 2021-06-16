@@ -23,10 +23,10 @@ export default class AddBookForm extends PureComponent {
             city: city,
             genre: genre,
             country: country,
-            description: description
+            description: description,
+            reservation: false
     }
-    // this.props.sent(data)
-    console.log(data)
+    this.props.send(data)
   };
 
   render = () => (

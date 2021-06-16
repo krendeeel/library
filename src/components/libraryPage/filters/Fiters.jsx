@@ -1,78 +1,17 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Select } from 'antd';
 import s from './Filters.module.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter } from './../../../redux/actions/actions';
 import { useHistory } from 'react-router-dom';
 import * as queryString from 'querystring'
+import { filters } from '../../utils/utils';
 const { Option } = Select;
 
 export const Filters = () => {
-
     const history = useHistory()
     const parsed = queryString.parse(history.location.search.substr(1))
     
-
-
-    const options1 =  [   {
-        id: '0',
-        value: 'adventures',
-        name: 'Приключения'
-    },
-    {
-        id: '1',
-        value: 'fiction',
-        name: 'Фантастика'
-    },
-    {
-        id: '2',
-        value: 'novel',
-        name: 'Роман'
-    },
-    {
-        id: '3',
-        value: 'detective',
-        name: 'Детектив'
-    },
-    {
-        id: '4',
-        value: 'scientific',
-        name: 'Научный'
-    }
-    
-    ]
-
-    const options2 = [
-        {
-            id: '01',
-            value: 'russian',
-            name: 'Сергей Лукьяненко'
-        },
-        {
-            id: '11',
-            value: 'foreign',
-            name: 'Макс Глебов'
-        },
-    ]
-
-
-    const options3 =  [
-        {
-            id: '02',
-            value: 'tula',
-            name: 'Тула'
-        },
-        {
-            id: '12',
-            value: 'orel',
-            name: 'Орел'
-        },
-        {
-            id: '22',
-            value: 'moscow',
-            name: 'Москва'
-        }
-    ]
     const dispatch = useDispatch()
     const filter = useSelector(state => state.booksReducer.filter)
     const handleChangeGenre = (value) => {
@@ -86,14 +25,14 @@ export const Filters = () => {
     }
     return (
         <div className={s.filters}>
-            <Select className={s.filter} defaultValue={parsed.genre ? parsed.genre : 'Все Жанры'} onChange={handleChangeGenre}>
-                {options1.map(item => <Option key={item.id} value={item.name}>{item.name}</Option>)}
+            <Select className={s.filter} defaultValue={parsed.genre ? parsed.genre : filter.genre} onChange={handleChangeGenre}>
+                {filters.genres.map(item => <Option key={item.name} value={item.value}>{item.name}</Option>)}
             </Select>
-            <Select className={s.filter} defaultValue={parsed.author ? parsed.author : 'Автор'} onChange={handleChangeAuthor}>
-                {options2.map(item => <Option key={item.id} value={item.name}>{item.name}</Option>)}
+            <Select className={s.filter} defaultValue={parsed.author ? parsed.author : filter.author} onChange={handleChangeAuthor}>
+                {filters.authors.map(item => <Option key={item.name} value={item.value}>{item.name}</Option>)}
             </Select>
-            <Select className={s.filter} defaultValue={parsed.city ? parsed.city : 'Город'} onChange={handleChangeCity}>
-                {options3.map(item => <Option key={item.id} value={item.name}>{item.name}</Option>)}
+            <Select className={s.filter} defaultValue={parsed.city ? parsed.city : filter.city} onChange={handleChangeCity}>
+                {filters.cities.map(item => <Option key={item.name} value={item.value}>{item.name}</Option>)}
             </Select>
         </div>
     )

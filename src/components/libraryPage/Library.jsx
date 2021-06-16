@@ -7,13 +7,14 @@ import { getBooksThunk } from './../../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import * as queryString from 'querystring'
-import { setFilter, setCurrentPage } from './../../redux/actions/actions';
+import { setFilter, setCurrentPage, setCurrentItem } from './../../redux/actions/actions';
 export const Library = () =>{
     const dispatch =  useDispatch()
     const history = useHistory()
     const filter = useSelector(state => state.booksReducer.filter)
     const currentPage = useSelector(state => state.booksReducer.currentPage)
     useEffect(()=>{
+        dispatch(setCurrentItem('Библиотека'))
         const parsed = queryString.parse(history.location.search.substr(1))
         let actualPage = currentPage
         if(parsed.currentPage) actualPage = Number(parsed.currentPage)
@@ -39,7 +40,7 @@ export const Library = () =>{
         if(filter.genre) query.genre = filter.genre
         if(filter.author) query.author = filter.author
         if(filter.city) query.city = filter.city
-        if(currentPage != 1) query.currentPage = currentPage
+        if(currentPage !== 1) query.currentPage = currentPage
 
         history.push({
             pathname: '/library',

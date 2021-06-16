@@ -16,7 +16,11 @@ display: flex;
   cursor: pointer;
   text-decoration: none;
 }
-
+.active{
+    color: black;
+    background-color: white;
+    font-weight: 500;
+}
 .item:hover{
     color: black;
     background-color: white;
